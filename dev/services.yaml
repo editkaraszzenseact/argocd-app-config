@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cicd-artifactory-dev-ingress
+spec:
+  tls:
+  - hosts:
+      - artifactory.dev.com
+    secretName: cicd-artifactory-dev-secret-tls
+  rules:
+  - host: artifactory.dev.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: cicd-artifactory-dev
+            port:
+              number: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: cicd-artifactory-dev
+spec:
+  selector:
+    app: artifactory
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8082
