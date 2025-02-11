@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: cicd-artifactory-dev-ingress
 spec:
-  tls:
-  - hosts:
-      - artifactory.dev.com
-    secretName: cicd-artifactory-dev-secret-tls
+#  tls:
+#  - hosts:
+#      - artifactory.dev.com
+#    secretName: cicd-artifactory-dev-secret-tls
   rules:
   - host: artifactory.dev.com
     http:
@@ -30,3 +30,5 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 8082
+    nodePort: 31501
+type: NodePort
