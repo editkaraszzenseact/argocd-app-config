@@ -17,7 +17,7 @@ spec:
           service:
             name: cicd-artifactory-dev
             port:
-              number: 80
+              number: 8082
 ---
 kind: Service
 apiVersion: v1
