@@ -1,24 +1,3 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: cicd-artifactory-dev-ingress
-spec:
-#  tls:
-#  - hosts:
-#      - artifactory.dev.com
-#    secretName: cicd-artifactory-dev-secret-tls
-  rules:
-  - host: artifactory.dev.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: cicd-artifactory-dev
-            port:
-              number: 8082
----
 kind: Service
 apiVersion: v1
 metadata:
@@ -28,7 +7,5 @@ spec:
     app: artifactory
   ports:
   - protocol: TCP
-    port: 80
+    port: 80 # DEFAULT it is not necessary to add it
     targetPort: 8082
-    nodePort: 31501
-type: NodePort

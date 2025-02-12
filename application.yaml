@@ -11,7 +11,7 @@ spec:
     path: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: cicd-artifactory-dev
+    namespace: cicd-artifactory
 
   syncPolicy:
     syncOptions:

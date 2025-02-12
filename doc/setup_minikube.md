@@ -15,3 +15,15 @@ $ kubectl cluster-info
 $ minikube status
 $ kubectl get nodes
 ```
+
+You want to have ingress support for Minikube:
+```
+$ minikube addons enable ingress
+$ kubectl get service ingress-nginx-controller -n ingress-nginx
+```
+
+Every time your computer goes to sleep mode minikube will stop.
+To restart it:
+```
+$ minikube start --driver=docker
+```
