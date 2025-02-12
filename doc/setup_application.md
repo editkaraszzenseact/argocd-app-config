@@ -20,3 +20,21 @@ $ kubectl apply -f application.yaml --validate=true
 ```
 
 From this time every new commits will be deployed.
+
+To see it from your browser / check results from a console:
+
+```
+$ curl --resolve "artifactory.dev.com:80:$( minikube ip )" -i http://artifactory.dev.com
+
+Where minikube ip is equal to the ip which shows up at:
+
+```
+$ kubectl get ingress -n ingress-nginx
+```
+
+You can also read the logs of the application as the output of the logs:
+
+```
+$ kubectl get pods -n cicd-artifactory-dev
+$ kubectl logs <POD-NAME> -n cicd-artifactory-dev
+```

@@ -5,10 +5,10 @@ metadata:
   namespace: ingress-nginx
 spec:
   ingressClassName: nginx
-#  tls:
-#  - hosts:
-#      - artifactory.dev.com
-#    secretName: cicd-artifactory-dev-secret-tls
+  tls:
+  - hosts:
+      - artifactory.dev.com
+    secretName: cicd-artifactory-dev-secret-tls
   rules:
   - host: artifactory.dev.com
     http:
