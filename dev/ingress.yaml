@@ -4,7 +4,7 @@ metadata:
   name: cicd-artifactory-ingress-http
   namespace: ingress-nginx
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true" 
+    nginx.ingress.kubernetes.io/ssl-redirect: "false" 
   labels:
     app: artifactory
     env: dev
