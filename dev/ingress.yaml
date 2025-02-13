@@ -1,14 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: cicd-artifactory-dev-ingress
+  name: cicd-artifactory-ingress-http
   namespace: ingress-nginx
+  labels:
+    app: artifactory
+    env: dev
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
       - artifactory.dev.com
-    secretName: cicd-artifactory-dev-secret-tls
+    secretName: cicd-artifactory-secret-tls
   rules:
   - host: artifactory.dev.com
     http:
@@ -17,6 +20,58 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: cicd-artifactory-dev
+            name: cicd-artifactory-service
             port:
               number: 8082
+#---
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: cicd-artifactory-ingress-api
+#  namespace: ingress-nginx
+#  labels:
+#    app: artifactory
+#    env: dev
+#spec:
+#  ingressClassName: nginx
+#  tls:
+#  - hosts:
+#      - artifactory.dev.com
+#    secretName: cicd-artifactory-secret-tls
+#  rules:
+#  - host: artifactory.dev.com
+#    http:
+#      paths:
+#      - path: /
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: cicd-artifactory-api-dev
+#            port:
+#              number: 8081
+#---
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: cicd-artifactory-ingress-sync
+#  namespace: ingress-nginx
+#  labels:
+#    app: artifactory
+#    env: dev
+#spec:
+#  ingressClassName: nginx
+#  tls:
+#  - hosts:
+#      - artifactory.dev.com
+#    secretName: cicd-artifactory-secret-tls
+#  rules:
+#  - host: artifactory.dev.com
+#    http:
+#      paths:
+#      - path: /
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: cicd-artifactory-sync-dev
+#            port:
+#              number: 8040

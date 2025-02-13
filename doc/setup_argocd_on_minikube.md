@@ -58,7 +58,7 @@ You can add:
 Also:
 - ArgoCD runs periodically. it can be up to 3 minutes that it picks up a change
 - If you want inmediate change you can set up a webhook
-- Or start it with the button from the admin site
+- Or start it with the "REFREASH" button from the admin site
 
 ### Run it with Kuztomise
 

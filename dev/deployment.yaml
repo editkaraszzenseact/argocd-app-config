@@ -6,7 +6,7 @@ metadata:
     app: artifactory
     env: dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: artifactory
@@ -20,4 +20,9 @@ spec:
       - name: artifactory
         image: releases-docker.jfrog.io/jfrog/artifactory-pro:7.38.7
         ports:
+        - containerPort: 8081
+          name: api
         - containerPort: 8082
+          name: http
+        - containerPort: 8040
+          name: sync
