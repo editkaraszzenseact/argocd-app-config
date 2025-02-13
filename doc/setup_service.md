@@ -1,4 +1,4 @@
-## Application
+# Servicee
 
 The test application is Artifactory. Only Kubernetes manifest files introduced with an ingress controller as a loadballander.
 It is stored in the **dev** foler.
@@ -25,6 +25,7 @@ To see it from your browser / check results from a console:
 
 ```
 $ curl --resolve "artifactory.dev.com:80:$( minikube ip )" -i http://artifactory.dev.com
+```
 
 Where minikube ip is equal to the ip which shows up at:
 
