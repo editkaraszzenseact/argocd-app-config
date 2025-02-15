@@ -18,3 +18,4 @@ spec:
     protocol: TCP
     port: 8040
     targetPort: 8040
+  type: LoadBalancer
