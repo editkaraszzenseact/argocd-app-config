@@ -16,11 +16,14 @@ $ minikube status
 $ kubectl get nodes
 ```
 
-You want to have ingress support for Minikube:
+If you want to have ingress support for Minikube:
 ```
 $ minikube addons enable ingress
 $ kubectl get service ingress-nginx-controller -n ingress-nginx
 ```
+
+But Artifactory exposes multiple hostnames on the same url and path which cannot be done with ingress.
+
 
 Every time your computer goes to sleep mode minikube will stop.
 To restart it:

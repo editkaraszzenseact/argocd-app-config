@@ -21,16 +21,20 @@ $ kubectl apply -f application.yaml --validate=true
 
 From this time every new commits will be deployed.
 
+To creacte an externally available endpoint for the loadbalancer you need to run:
+```
+$ minikube tunnel
+```
+This should keep running in the background.
+
+*TODO:*
+
+Add ssl to loadbalancer endpont.
+
 To see it from your browser / check results from a console:
 
 ```
-$ curl --resolve "artifactory.dev.com:80:$( minikube ip )" -i http://artifactory.dev.com
-```
-
-Where minikube ip is equal to the ip which shows up at:
-
-```
-$ kubectl get ingress -n ingress-nginx
+$ kubectl get svc -n cicd-artifactory-dev
 ```
 
 You can also read the logs of the application as the output of the logs:
